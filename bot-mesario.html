@@ -25,9 +25,9 @@ footer{margin-top:8px;color:#8fa3bd;font-size:11.5px;line-height:1.4}
 </style></head><body><div class="app">
 <header><a href="index.html">← Início</a><h1>Ajuda Mesário · Seção 153</h1></header>
 <p class="sub">Assistente com base no Manual do Mesário 2026 (TSE). Pergunte sobre procedimentos antes, durante e depois da votação.</p>
-<div id="log" aria-live="polite"><div class="m bot">Olá! 👋 Sou o assistente de dúvidas do mesário. Como posso ajudar?</div></div>
+<div id="log" aria-live="polite"><div class="m bot">Olá! 👋 Sou o assistente de dúvidas do mesário da Seção 153. Como posso ajudar?</div></div>
 <form id="f"><input id="q" autocomplete="off" placeholder="Digite sua dúvida..." maxlength="1000" autofocus><button id="b">Enviar</button></form>
-<footer>Respostas geradas por IA a partir do manual; confira a página citada. Em caso de dúvida ou problema na urna, acione o Cartório Eleitoral.</footer>
+<footer>Respostas geradas por IA a partir do manual; confira a página citada.</footer>
 </div>
 <script>
 const WEBHOOK="https://suporte.cangalha.com.br/webhook/77d27b08-ef9a-4bee-9965-6a0fbd105781/chat";
@@ -46,7 +46,7 @@ f.onsubmit=async e=>{
     const j=await r.json();
     w.className="m bot";w.textContent=(j.output||j.text||j.message||"Não consegui obter uma resposta.").trim();
   }catch(err){
-    w.className="m err";w.textContent=err.name==="AbortError"?"A resposta demorou demais. Tente novamente.":"Não consegui falar com o assistente agora. Tente novamente em instantes ou acione o Cartório Eleitoral.";
+    w.className="m err";w.textContent=err.name==="AbortError"?"A resposta demorou demais. Tente novamente.":"Não consegui falar com o assistente agora. Tente novamente em instantes.";
   }finally{clearTimeout(to);b.disabled=false;q.focus();log.scrollTop=log.scrollHeight}
 };
 </script></body></html>
